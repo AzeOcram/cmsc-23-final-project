@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 //import screens
 import 'screens/home_page.dart';
+import 'screens/add_food_page.dart';
 import 'screens/qr_page.dart';
 import 'screens/chats_page.dart';
 import 'screens/profile_page.dart';
@@ -21,26 +22,27 @@ class ElbigayanApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: .fromSeed(seedColor: Colors.deepOrangeAccent),
       ),
-      home: const MainScreen(title: "Elbigayan App"),
+      home: const MainScreen(),
     );
   }
 }
 
 class MainScreen extends StatefulWidget {
-  const MainScreen({super.key, required this.title});
-
-  final String title;
+  const MainScreen({super.key});
 
   @override
   State<MainScreen> createState() => _MainScreenState();
 }
+ 
 
+ //Bottom Navigation Bar
 class _MainScreenState extends State<MainScreen> {
+  //Screens
   int _currentIndex = 0;
  
   final List<Widget> _screens = [
     const HomePage(),
-    const QRPage(),
+    const AddFoodPage(),
     const ChatsPage(),
     const ProfilePage(),
   ];
@@ -126,7 +128,7 @@ class _MainScreenState extends State<MainScreen> {
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.qr_code_scanner),
+            icon: Icon(Icons.add_circle_outline),
             label: 'Add',
           ),
           BottomNavigationBarItem(
@@ -139,17 +141,16 @@ class _MainScreenState extends State<MainScreen> {
           ),
         ],
       ),
-      floatingActionButton: _currentIndex != 1
-          ? FloatingActionButton(
-              onPressed: () {
-                setState(() {
-                  _currentIndex = 1;
-                });
-              },
-              backgroundColor: const Color(0xFFFF9800),
-              child: const Icon(Icons.qr_code_scanner),
-            )
-          : null,
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const QRPage()),
+          );
+        },
+        backgroundColor: const Color(0xFFFF9800),
+        child: const Icon(Icons.qr_code_scanner),
+      ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
