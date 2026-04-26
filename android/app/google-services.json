@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "227896787399",
+    "project_id": "pantry-share",
+    "storage_bucket": "pantry-share.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:227896787399:android:7d91c2e17b40bb73e759e2",
+        "android_client_info": {
+          "package_name": "com.example.pantry_share"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAN08h8Fc1Zw1Sq6uVgNErRnhSC6sQTOs4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
